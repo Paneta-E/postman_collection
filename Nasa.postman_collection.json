@@ -1,0 +1,572 @@
+{
+	"info": {
+		"_postman_id": "639c91a6-5064-4716-b46e-024013377256",
+		"name": "Nasa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://alf.soft2bet.com/en/api/v2/lang/translation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4f16fc31-3ee2-4eca-b4d1-b733963d2046",
+						"exec": [
+							"//1. Correct response format Json",
+							"pm.test(\"Correct response format Json\",function(){",
+							" pm.response.to.have.jsonBody()",
+							"});",
+							"",
+							"//2. Check than we have all declored fields in the response",
+							"pm.test(\"We have all declored fields in the response\",function(){",
+							"   const jsonData = pm.response.json();",
+							"   pm.expect(jsonData).to.have.property(\"payment_callback.text.timer\")",
+							"});",
+							"",
+							"//3. Field value isn't NULL",
+							"pm.test(\"Check if value isn't NULL\", function(){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.wager).not.equal(null);",
+							"});",
+							"//4. Field value isn't empty",
+							"pm.test(\"Check if value isn't empty\", function(){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.wager).not.equal(\"\");",
+							"});",
+							"",
+							"//5. Check if field corresponds to a specific value",
+							"pm.test(\"Check if field corresponds to a specific value\", function(){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.wager).to.equal(\"Wager\");",
+							"});",
+							"",
+							"//6. Status code is 200",
+							"pm.test(\"Status code is 200\", function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//7. Status message is ok",
+							"pm.test(\"Status message is ok\", function(){",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"//8. Response time is less than 1000ms",
+							"pm.test(\"Response time is less than 1000ms\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"//9. There is a specific header in the response",
+							"pm.test(\"There is a specific header in the response\", function(){",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"//10. The response has a specific header with a specific  value",
+							"pm.test(\"The response has a specific header with a specific  value\", function(){",
+							"    pm.response.to.be.header(\"Content-Type\",\"application/json; charset=utf-8\");",
+							"});",
+							"",
+							"//11. Cookie exists",
+							"pm.test(\"Cookie exists\", function(){",
+							"    pm.cookies.has(\"__cfduid\");",
+							"});",
+							"",
+							"//12. Coockie has value",
+							"pm.test(\"Cookie has value\", function(){",
+							"    try{",
+							"        var MY_COOKIE = pm.cookies.get(\"__cfduid\");",
+							"        console.log(MY_COOKIE);",
+							"    } catch(e) {",
+							"        console.log(\"SOME PROBLEM WITH COOKIE ->\" + e)",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "3421",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://alf.soft2bet.com/en/api/v2/lang/translation",
+					"protocol": "http",
+					"host": [
+						"alf",
+						"soft2bet",
+						"com"
+					],
+					"path": [
+						"en",
+						"api",
+						"v2",
+						"lang",
+						"translation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authorization \"Basic Auth\"",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "postman",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://postman-echo.com/basic-auth",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"basic-auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Headers \"Basic Auth\" key",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic cG9zdG1hbjpwYXNzd29yZA==",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://postman-echo.com/basic-auth",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"basic-auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://821fb823-599c-4abf-929b-178257c15b3f.mock.pstmn.io",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://821fb823-599c-4abf-929b-178257c15b3f.mock.pstmn.io",
+					"protocol": "https",
+					"host": [
+						"821fb823-599c-4abf-929b-178257c15b3f",
+						"mock",
+						"pstmn",
+						"io"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "https://821fb823-599c-4abf-929b-178257c15b3f.mock.pstmn.io",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://821fb823-599c-4abf-929b-178257c15b3f.mock.pstmn.io",
+							"protocol": "https",
+							"host": [
+								"821fb823-599c-4abf-929b-178257c15b3f",
+								"mock",
+								"pstmn",
+								"io"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 14 Nov 2020 19:36:02 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=da05b7d0cdbebab9"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=69ed70c6c1d45820"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1605382621"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a4-7hO0T/XLq3TuFViTu2ZVQQdIY+A\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"name\": \"test\",\n        \"message\": \"success\",\n        \"header\": \"You need an example\"\n    }\n}"
+				},
+				{
+					"name": "https://821fb823-599c-4abf-929b-178257c15b3f.mock.pstmn.io",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"Paneta\"}",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://821fb823-599c-4abf-929b-178257c15b3f.mock.pstmn.io/action",
+							"protocol": "https",
+							"host": [
+								"821fb823-599c-4abf-929b-178257c15b3f",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"action"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 14 Nov 2020 19:40:21 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=da05b7d0cdbebab9"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=69ed70c6c1d45820"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1605382621"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a4-7hO0T/XLq3TuFViTu2ZVQQdIY+A\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"name\": \"Paneta\",\n        \"status\":\"created\",\n        \"message\": \"success\",\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "https://821fb823-599c-4abf-929b-178257c15b3f.mock.pstmn.io",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Paneta\"}",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://821fb823-599c-4abf-929b-178257c15b3f.mock.pstmn.io/action",
+					"protocol": "https",
+					"host": [
+						"821fb823-599c-4abf-929b-178257c15b3f",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"action"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "https://821fb823-599c-4abf-929b-178257c15b3f.mock.pstmn.io",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://821fb823-599c-4abf-929b-178257c15b3f.mock.pstmn.io",
+							"protocol": "https",
+							"host": [
+								"821fb823-599c-4abf-929b-178257c15b3f",
+								"mock",
+								"pstmn",
+								"io"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 14 Nov 2020 19:36:02 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=da05b7d0cdbebab9"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=69ed70c6c1d45820"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1605382621"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a4-7hO0T/XLq3TuFViTu2ZVQQdIY+A\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"name\": \"test\",\n        \"message\": \"success\",\n        \"header\": \"You need an example\"\n    }\n}"
+				},
+				{
+					"name": "https://821fb823-599c-4abf-929b-178257c15b3f.mock.pstmn.io",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"Paneta\"}",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://821fb823-599c-4abf-929b-178257c15b3f.mock.pstmn.io/action",
+							"protocol": "https",
+							"host": [
+								"821fb823-599c-4abf-929b-178257c15b3f",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"action"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 14 Nov 2020 19:40:21 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=da05b7d0cdbebab9"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=69ed70c6c1d45820"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1605382621"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a4-7hO0T/XLq3TuFViTu2ZVQQdIY+A\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"name\": \"Paneta\",\n        \"status\":\"created\",\n        \"message\": \"success\",\n    }\n}"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}
